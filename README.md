@@ -1,7 +1,7 @@
 # monacoQC
 
-Contains an object-oriented Matlab-based device engineering tool for 
-quantum cascade (QC) structures.
+An object-oriented Matlab-based device engineering tool for quantum cascade
+(QC) structures.
 
 ## Overview
 
@@ -17,7 +17,6 @@ An object-oriented Matlab-based device engineering tool for quantum cascade
   with there specific material properties. An object of a device can be 
   composed by defining a period consisting of different well and barrier 
   materials. A scenario class specifies the simulation parameters. 
-  Different backend classes can be chosen for writing EMC input files. 
   
 - optimizer: The optimizer class BO_sim can be used to execute a
   Bayesian optimization of a QC design.
