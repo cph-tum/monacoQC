@@ -19,12 +19,18 @@
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-classdef carrier_transport_sim < handle
-    %carrier_transport_sim Base class of a backend that generates simulation
-    %        input files from the object-oriented description.
+function hdf5_write(filename, varargin)
+% Saves objects to hdf5 file.
+%
+% Syntax:
+%   hdf5_write(filename, obj1, obj2, ...)
+%
+% Input Arguments:
+%   filename (string): Name of hdf5 file.
+%   obj (postprocessing-object): Postprocessing object for which
+%     to_hdf5() method is implemented.
 
-    methods (Abstract)
-        generate(obj, device, scenario, options, path, ...
-            eigenstates, cond_profile)
-    end
+for i = 1:length(varargin)
+    varargin{i}.to_hdf5(filename);
+end
 end

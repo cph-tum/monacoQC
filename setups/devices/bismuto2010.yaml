@@ -1,0 +1,67 @@
+name: Bismuto 2010
+reference: |
+  A. Bismuto, R. Terazzi, M. Beck, and J. Faist
+  "Electrically tunable, high performance quantum cascade laser"
+  Appl. Phys. Lett. 96, 141105 (2010)
+  https://doi.org/10.1063/1.3377008
+type: mid-IR
+structure:
+  materials:
+    - name: barrier
+      material: InAlAs
+      composition: ternary
+      ratio: 0.52
+    - name: well
+      material: InGaAs
+      composition: ternary
+      ratio: 0.53
+    - name: substrate
+      material: InP
+      composition: binary
+  material_system:
+    name: InGaAs/InAlAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.0e-10
+  period:
+    - material: barrier
+      thickness: 34
+      doping: 1.2e+17
+    - material: well
+      thickness: 31
+      doping: 1.2e+17
+    - material: barrier
+      thickness: 24
+    - material: well
+      thickness: 33
+    - material: barrier
+      thickness: 17
+    - material: well
+      thickness: 36
+    - material: barrier
+      thickness: 14
+    - material: well
+      thickness: 43
+    - material: barrier
+      thickness: 11
+    - material: well
+      thickness: 48
+    - material: barrier
+      thickness: 10
+    - material: well
+      thickness: 53
+    - material: barrier
+      thickness: 8
+    - material: well
+      thickness: 18
+    - material: barrier
+      thickness: 40
+    - material: well
+      thickness: 29
+scenario:
+  num_periods: 5
+  temperature: 300
+  bias_field: 57.0
+  simulation_time: 10.0e-11
+  num_wavefunctions: 9
+  wavefunction_basis: tb

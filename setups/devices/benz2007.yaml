@@ -1,0 +1,55 @@
+name: Benz 2010
+reference: |
+  A. Benz, G. Fasching, A. M. Andrews, M. Martl, K. Unterrainer, T. Roch, W. Schrenk, S. Golka, G. Strasser
+  "Influence of doping on the performance of terahertz quantum-cascade lasers"
+  Appl. Phys. Lett. 90, 101107 (2007)
+  https://doi.org/10.1063/1.2711710
+type: THz
+structure:
+  materials:
+    - name: barrier
+      material: AlGaAs
+      composition: ternary
+      ratio: 0.15
+    - name: well
+      material: GaAs
+      composition: binary
+    - name: substrate
+      material: GaAs
+      composition: binary
+  material_system:
+    name: GaAs/AlGaAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.2e-10
+  period:
+    - material: barrier
+      thickness: 55
+    - material: well
+      thickness: 92
+    - material: barrier
+      thickness: 30
+    - material: well
+      thickness: 155
+      doping: 8.0e+15
+    - material: barrier
+      thickness: 41
+    - material: well
+      thickness: 66
+    - material: barrier
+      thickness: 27
+    - material: well
+      thickness: 80
+waveguide:
+  cavity_length: 1.22e-3
+  field_reflectivity_left: 1
+  field_reflectivity_right: 0.83277
+  power_loss: 4.0e+2
+  overlap_factor: 0.93
+scenario:
+  num_periods: 5
+  temperature: 77
+  bias_field: 7.6
+  simulation_time: 10.0e-11
+  num_wavefunctions: 5
+  wavefunction_basis: tb

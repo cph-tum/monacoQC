@@ -19,12 +19,30 @@
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-classdef carrier_transport_sim < handle
-    %carrier_transport_sim Base class of a backend that generates simulation
-    %        input files from the object-oriented description.
+classdef Fermi_Dirac
+    % Describes the Fermi Dirac distribution.
 
-    methods (Abstract)
-        generate(obj, device, scenario, options, path, ...
-            eigenstates, cond_profile)
+    methods (Static)
+        function fE = calc(A, T, mu, E)
+            if nargin < 4
+                A = 1;
+            end
+            % Returns Fermi-Dirac distribution.
+            %
+            % Syntax:
+            %   fE = calc(A, T, mu, E)
+            %
+            % Input Arguments:
+            %   A (scalar): Amplitude A.
+            %   T (scalar): Electron temperature [K].
+            %   mu (scalar): Chemical potential [eV].
+            %   E (scalar): Energy [eV].
+            %
+            % Output Arguments:
+            %   fE (scalar): Evaluated Fermi-Dirac distribution.
+
+            fE = A * (exp(phys_const.e0*(E - mu)./(phys_const.kB * T)) ...
+                +1).^(-1);
+        end
     end
 end

@@ -1,0 +1,55 @@
+name: Tzenov 2016
+reference: |
+  P. Tzenov, D. Burghoff, Q. Hu, C. Jirauschek
+  "Time domain modeling of terahertz quantum cascade lasers for frequency comb generation"
+  Opt. Express 24, 23232-23247 (2016)
+  https://doi.org/10.1364/oe.24.023232
+type: THz
+structure:
+  materials:
+    - name: barrier
+      material: AlGaAs
+      composition: ternary
+      ratio: 0.15
+      strain: true
+    - name: well
+      material: GaAs
+      composition: binary
+      strain: true
+    - name: substrate
+      material: GaAs
+      composition: binary
+  material_system:
+    name: GaAs/AlGaAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.2e-10
+  period:
+    - material: barrier
+      thickness: 48
+    - material: well
+      thickness: 92
+    - material: barrier
+      thickness: 33
+    - material: well
+      thickness: 56
+    - material: well
+      thickness: 50
+      doping: 1.9e+16
+    - material: well
+      thickness: 56
+    - material: barrier
+      thickness: 40
+    - material: well
+      thickness: 74
+    - material: barrier
+      thickness: 23
+    - material: well
+      thickness: 76
+scenario:
+  num_periods: 5
+  temperature: 50
+  bias_field: 11
+  simulation_time: 5.0e-11
+  num_wavefunctions: 4
+  wavefunction_basis: tb

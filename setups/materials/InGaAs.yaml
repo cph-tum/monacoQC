@@ -1,0 +1,77 @@
+name: InGaAs
+composition: ternary
+component_1: InAs
+component_2: GaAs
+parameters:
+  - name: Eg
+    conc_dep:
+      model: bowing
+      param: 0.477
+  - name: Ec
+    conc_dep:
+      model: bowing
+      param: 0.097
+  - name: delta_so
+    conc_dep:
+      model: bowing
+      param: 0.15
+  - name: m_eff
+    value: 0.0091
+  - name: c_parab
+    value: 1.7
+  - name: a_lattice
+    conc_dep:
+      model: bowing
+  - name: C11
+    conc_dep:
+      model: lattice
+  - name: C12
+    conc_dep:
+      model: lattice
+  - name: C44
+    value: 0
+  - name: a_vb
+    conc_dep:
+      model: bowing
+  - name: a_cb
+    conc_dep:
+      model: bowing
+      param: 2.61
+  - name: b
+    conc_dep:
+      model: bowing
+  - name: F
+    conc_dep:
+      model: bowing
+      param: 1.77
+  - name: Ep
+    conc_dep:
+      model: bowing
+      param: -1.48
+  - name: eps_r
+    conc_dep:
+      model: bowing
+      param: 0.67
+  - name: eps_r_inf
+    conc_dep:
+      model: bowing
+  - name: rho
+    conc_dep:
+      model: bowing
+  - name: delta_V
+    value: 0.3
+  - name: v_sound
+    conc_dep:
+      model: bowing
+  - name: Xi
+    value: 8.6
+    conc_dep:
+      model: linear
+      param: -2.8
+  - name: E_lo
+    value: [28.51, 36.75]
+    conc_dep:
+      model: linear
+      param:
+        - 1.49
+        - -6.75

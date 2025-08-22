@@ -1,0 +1,51 @@
+name: GaSb
+composition: binary
+parameters:
+  - name: Eg
+    value: 0.812
+    temp_dep:
+      model: Varshni
+      param: [4.17e-4, 140]
+  - name: Ec
+    value: 0.063
+  - name: delta_so
+    value: 0.76
+  - name: m_eff
+    value: 0
+  - name: c_parab
+    value: 0
+  - name: a_lattice
+    value: 6.08174
+    temp_dep:
+      model: linear
+      param: 4.72e-5
+  - name: C11
+    value: 0.8842
+  - name: C12
+    value: 0.4026
+  - name: C44
+    value: 0.4322
+  - name: a_vb
+    value: 0.8
+  - name: a_cb
+    value: -7.5
+  - name: b
+    value: -2
+  - name: F
+    value: -1.63
+  - name: Ep
+    value: 27
+  - name: eps_r
+    value: 15.7
+  - name: eps_r_inf
+    value: 0
+  - name: rho
+    value: 0
+  - name: delta_V
+    value: 0
+  - name: v_sound
+    value: 0
+  - name: Xi
+    value: 0
+  - name: E_lo
+    value: 0

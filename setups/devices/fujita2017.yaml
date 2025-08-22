@@ -1,0 +1,90 @@
+name: Fujita 2017
+reference: |
+  K. Fujita, A. Ito, M. Hitaka, T. Dougakiuchi, T. Edamura
+  "Low-threshold room-temperature continuous-wave operation of a terahertz difference-frequency quantum cascade laser source"
+  Appl. Phys. Express 10, 082102 (2017)
+  https://doi.org/10.7567/APEX.10.082102
+type: mid-IR
+structure:
+  materials:
+    - name: barrier
+      material: InAlAs
+      composition: ternary
+      ratio: 0.44
+      strain: true
+    - name: well
+      material: InGaAs
+      composition: ternary
+      ratio: 0.60
+      strain: true
+    - name: substrate
+      material: InP
+      composition: binary
+  material_system:
+    name: InGaAs/InAlAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.0e-10
+  period:
+    - material: barrier
+      thickness: 37
+    - material: well
+      thickness: 26
+    - material: barrier
+      thickness: 28
+    - material: well
+      thickness: 27
+    - material: barrier
+      thickness: 24
+      doping: 1.0e+17
+    - material: well
+      thickness: 28
+      doping: 1.0e+17
+    - material: barrier
+      thickness: 21
+      doping: 1.0e+17
+    - material: well
+      thickness: 29
+      doping: 1.0e+17
+    - material: barrier
+      thickness: 18
+    - material: well
+      thickness: 30
+    - material: barrier
+      thickness: 16
+    - material: well
+      thickness: 32
+    - material: barrier
+      thickness: 15
+    - material: well
+      thickness: 36
+    - material: barrier
+      thickness: 12
+    - material: well
+      thickness: 45
+    - material: barrier
+      thickness: 11
+    - material: well
+      thickness: 49
+    - material: barrier
+      thickness: 9
+    - material: well
+      thickness: 60
+    - material: barrier
+      thickness: 26
+    - material: well
+      thickness: 24
+waveguide:
+  cavity_length: 3.0e-3
+  field_reflectivity_left: 0.71777
+  field_reflectivity_right: 1
+  refractive_index: 3.125
+  power_loss: 640
+  overlap_factor: 0.6
+scenario:
+  num_periods: 5
+  temperature: 300
+  bias_field: 55.9701
+  simulation_time: 10.0e-11
+  num_wavefunctions: 12
+  wavefunction_basis: tb

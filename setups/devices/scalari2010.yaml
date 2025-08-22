@@ -1,0 +1,51 @@
+name: Scalari 2010
+reference: |
+  G. Scalari, M. I. Amanti, C. Walther, R. Terazzi, M. Beck, J. Faist
+  "Broadband THz lasing from a photon-phonon quantum cascade structure"
+  Opt. Express  18, 8043-8052 (2010)
+  https://doi.org/10.1364/OE.18.008043
+type: THz
+structure:
+  materials:
+    - name: barrier
+      composition: ternary
+      material: AlGaAs
+      ratio: 0.15
+    - name: well
+      material: GaAs
+      composition: binary
+    - name: substrate
+      material: GaAs
+      composition: binary
+  material_system:
+    name: GaAs/AlGaAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.2e-10
+  period:
+    - material: barrier
+      thickness: 45
+    - material: well
+      thickness: 82
+    - material: well
+      thickness: 15
+      doping: 1.0e+17
+    - material: well
+      thickness: 82
+    - material: barrier
+      thickness: 38
+    - material: well
+      thickness: 83
+waveguide:
+  cavity_length: 1.7e-3
+  field_reflectivity_left: 1
+  field_reflectivity_right: 0.82
+  power_loss: 1.3833e+03
+  overlap_factor: 1
+scenario:
+  num_periods: 5
+  temperature: 10
+  bias_field: 12
+  simulation_time: 10.0e-11
+  num_wavefunctions: 4
+  wavefunction_basis: tb

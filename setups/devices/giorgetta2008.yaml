@@ -1,0 +1,68 @@
+name: Giorgetta 2008
+reference: |
+  F. R. Giorgetta, E. Baumann, R. Théron, M. L. Pellaton, D. Hofstetter, M. Fischer, J. Faist
+  "Short wavelength (4 µm) quantum cascade detector based on strain compensated InGaAs/InAlAs"
+  Appl. Phys. Lett. 92, 121101 (2008)
+  https://doi.org/10.1063/1.2902301
+type: mid-IR
+structure:
+  materials:
+    - name: barrier
+      material: InAlAs
+      composition: ternary
+      ratio: 0.45
+      strain: true
+    - name: well
+      material: InGaAs
+      composition: ternary
+      ratio: 0.61
+      strain: true
+    - name: substrate
+      material: InP
+      composition: binary
+  material_system:
+    name: InGaAs/InAlAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.0e-10
+  period:
+    - material: barrier
+      thickness: 40
+    - material: well
+      thickness: 45
+      doping: 1.0e+18
+    - material: barrier
+      thickness: 60
+    - material: well
+      thickness: 10
+    - material: barrier
+      thickness: 50
+    - material: well
+      thickness: 13
+    - material: barrier
+      thickness: 40
+    - material: well
+      thickness: 16
+    - material: barrier
+      thickness: 35
+    - material: well
+      thickness: 19
+    - material: barrier
+      thickness: 30
+    - material: well
+      thickness: 22
+    - material: barrier
+      thickness: 30
+    - material: well
+      thickness: 27
+    - material: barrier
+      thickness: 26
+    - material: well
+      thickness: 33
+scenario:
+  num_periods: 5
+  temperature: 100
+  bias_field: 0
+  simulation_time: 1.0e-10
+  num_wavefunctions: 9
+  wavefunction_basis: QCD

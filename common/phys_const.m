@@ -2,7 +2,7 @@
 % monacoQC: An object-oriented Matlab-based device engineering tool for
 % quantum cascade structures.
 %
-% Copyright (C) 2023, Computational Photonics Group, Technical University of
+% Copyright (C) 2025, Computational Photonics Group, Technical University of
 % Munich
 %
 % This program is free software: you can redistribute it and/or modify
@@ -20,12 +20,12 @@
 %
 
 classdef phys_const
-    %phys_const Defines all necessary physical constants in SI units
-    % used in the monacoQC project.
-    %
+    % Defines all necessary physical constants in SI units used in the
+    % monaco project.
+
     properties
     end
-    %
+
     methods (Static)
         function E0 = e0()
             % Returns elementary charge.

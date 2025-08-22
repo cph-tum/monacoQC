@@ -1,0 +1,61 @@
+name: GaAs
+composition: binary
+parameters:
+  - name: Eg
+    value: 1.519
+    temp_dep:
+      model: Varshni
+      param: [5.405e-4, 204]
+  - name: Ec
+    value: 0
+  - name: delta_so
+    value: 0.341
+  - name: m_eff
+    value: 0
+  - name: c_parab
+    value: 3.2
+    reference: https://doi.org/10.1103/PhysRevB.48.2328
+  - name: a_lattice
+    value: 5.64161
+    temp_dep:
+      model: linear
+      param: 3.88e-5
+  - name: C11
+    value: 1.217
+    temp_dep:
+      model: linear
+      param: -1.44e-4
+  - name: C12
+    value: 0.546
+    temp_dep:
+      model: linear
+      param: -6.4e-6
+  - name: C44
+    value: 0.616
+    temp_dep:
+      model: linear
+      param: -7.0e-5
+  - name: a_vb
+    value: 1.16
+  - name: a_cb
+    value: -7.17
+  - name: b
+    value: -2
+  - name: F
+    value: -1.94
+  - name: Ep
+    value: 28.8
+  - name: eps_r
+    value: 12.9
+  - name: eps_r_inf
+    value: 10.89
+  - name: rho
+    value: 5.32
+  - name: delta_V
+    value: 0
+  - name: v_sound
+    value: 5240
+  - name: Xi
+    value: 8.8
+  - name: E_lo
+    value: 35.3

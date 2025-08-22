@@ -1,0 +1,45 @@
+name: Khalatpour 2021
+reference: |
+  A. Khalatpour, A. K. Paulsen, C. Deimert, Z. R. Wasilewski, Q. Hu
+  "High-power portable terahertz laser systems"
+  Nat. Photonics 15, 16-20 (2021)
+  https://doi.org/10.1038/s41566-020-00707-5
+type: THz
+structure:
+  materials:
+    - name: barrier
+      material: AlGaAs
+      composition: ternary
+      ratio: 0.3
+    - name: well
+      material: GaAs
+      composition: binary
+    - name: substrate
+      material: GaAs
+      composition: binary
+  material_system:
+    name: GaAs/AlGaAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.2e-10
+  period:
+    - material: barrier
+      thickness: 34
+    - material: well
+      thickness: 72
+    - material: barrier
+      thickness: 19
+    - material: well
+      thickness: 58
+    - material: well
+      thickness: 30
+      doping: 1.5e+19
+    - material: well
+      thickness: 58
+scenario:
+  num_periods: 5
+  temperature: 80
+  bias_field: 10
+  simulation_time: 10.0e-11
+  num_wavefunctions: 3
+  wavefunction_basis: tb

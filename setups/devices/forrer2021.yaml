@@ -1,0 +1,49 @@
+name: Forrer 2010
+reference: |
+  A. Forrer, Y. Wang, M. Beck, A. Belyanin, J. Faist, G. Scalari
+  "Self-starting harmonic comb emission in THz quantum cascade lasers"
+  Appl. Phys. Lett. 118, 131112 (2021)
+  https://doi.org/10.1063/5.0041339
+type: THz
+structure:
+  materials:
+    - name: barrier
+      composition: ternary
+      material: AlGaAs
+      ratio: 0.15
+    - name: well
+      material: GaAs
+      composition: binary
+    - name: substrate
+      material: GaAs
+      composition: binary
+  material_system:
+    name: GaAs/AlGaAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.2e-10
+  period:
+    - material: barrier
+      thickness: 58
+    - material: well
+      thickness: 183
+      doping: 2.3e+16
+    - material: barrier
+      thickness: 41
+    - material: well
+      thickness: 92
+    - material: barrier
+      thickness: 39
+    - material: well
+      thickness: 115
+    - material: barrier
+      thickness: 29
+    - material: well
+      thickness: 106
+scenario:
+  num_periods: 5
+  temperature: 80
+  bias_field: 5
+  simulation_time: 5e-11
+  num_wavefunctions: 5
+  wavefunction_basis: tb

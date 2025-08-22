@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: fix-byte-order-marker
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.33.3
+    hooks:
+      - id: check-jsonschema
+        name: Validate setup files
+        files: ^setups/tests/.*\.yaml$
+        args: ["--schemafile", "setups/python/device_schema.json"]
+      - id: check-jsonschema
+        name: Validate material files
+        files: ^setups/materials/.*\.yaml$
+        args: ["--schemafile", "setups/python/material_schema.json"]

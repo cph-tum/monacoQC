@@ -19,12 +19,12 @@
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-classdef carrier_transport_sim < handle
-    %carrier_transport_sim Base class of a backend that generates simulation
-    %        input files from the object-oriented description.
+% QCL structure
+[d, s] = read_input_file("scalari2010");
+s.V = 12; % applied bias [kV/cm]
+s.T = 10; % lattice temperature [K]
+s.basis_sp = "tb"; % basis state: "ext", "tb", "ez"
 
-    methods (Abstract)
-        generate(obj, device, scenario, options, path, ...
-            eigenstates, cond_profile)
-    end
-end
+% Run Schrödinger-Poisson solver
+SP_solver = tm_solver(d, s);
+[eigen, cond_band] = SP_solver.solve();

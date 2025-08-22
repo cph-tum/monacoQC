@@ -1,0 +1,51 @@
+name: Bai 2010
+reference: |
+  Y. Bai, S. Slivken, S. Kuboya, S. R. Darvish, M. Razeghi
+  "Qantum cascade lasers that emit more light than heat"
+  Nat. Photonics 4, 99–102 (2010)
+  https://doi.org/10.1038/nphoton.2009.263
+type: mid-IR
+structure:
+  materials:
+    - name: barrier
+      material: InAlAs
+      composition: ternary
+      ratio: 0.36
+    - name: well
+      material: InGaAs
+      composition: ternary
+      ratio: 0.66
+    - name: substrate
+      material: InP
+      composition: binary
+  material_system:
+    name: InGaAs/InAlAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.0e-10
+  period:
+    - material: barrier
+      thickness: 38
+    - material: well
+      thickness: 27
+      doping: 2.2e+17
+    - material: barrier
+      thickness: 27
+      doping: 2.2e+17
+    - material: well
+      thickness: 34
+    - material: barrier
+      thickness: 16
+    - material: well
+      thickness: 49
+    - material: barrier
+      thickness: 13
+    - material: well
+      thickness: 16
+scenario:
+  num_periods: 5
+  temperature: 80
+  bias_field: 125
+  simulation_time: 10.0e-11
+  num_wavefunctions: 5
+  wavefunction_basis: tb

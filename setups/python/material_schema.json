@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "monaco material file schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "composition": {
+      "type": "string",
+      "enum": [
+        "binary",
+        "ternary"
+      ]
+    },
+    "parameters": {
+      "type": "array",
+      "minItems": 21,
+      "maxItems": 21,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "m_eff",
+              "c_parab",
+              "Ec",
+              "Eg",
+              "delta_so",
+              "eps_r",
+              "eps_r_inf",
+              "C11",
+              "C12",
+              "C44",
+              "a_lattice",
+              "a_vb",
+              "a_cb",
+              "b",
+              "F",
+              "Ep",
+              "rho",
+              "delta_V",
+              "v_sound",
+              "Xi",
+              "E_lo"
+            ]
+          },
+          "reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    }
+  },
+  "required": [
+    "name",
+    "composition",
+    "parameters"
+  ],
+  "if": {
+    "properties": {
+      "composition": {
+        "const": "ternary"
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "component_1": {
+        "type": "string"
+      },
+      "component_2": {
+        "type": "string"
+      },
+      "parameters": {
+        "items": {
+          "properties": {
+            "value": {
+              "type": [
+                "number",
+                "array"
+              ]
+            },
+            "conc_dep": {
+              "type": "object",
+              "properties": {
+                "model": {
+                  "type": "string",
+                  "enum": [
+                    "bowing",
+                    "lattice",
+                    "linear",
+                    "quadratic",
+                    "pwl"
+                  ]
+                },
+                "param": {
+                  "type": [
+                    "number",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "number",
+                      "array"
+                    ],
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "concs": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "model"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "required": [
+      "component_1",
+      "component_2"
+    ]
+  },
+  "else": {
+    "properties": {
+      "parameters": {
+        "items": {
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "temp_dep": {
+              "type": "object",
+              "properties": {
+                "model": {
+                  "type": "string",
+                  "enum": [
+                    "Varshni",
+                    "linear"
+                  ]
+                },
+                "param": {
+                  "type": [
+                    "number",
+                    "array"
+                  ],
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "model",
+                "param"
+              ]
+            }
+          },
+          "required": [
+            "value"
+          ]
+        }
+      }
+    }
+  },
+  "unevaluatedProperties": false
+}

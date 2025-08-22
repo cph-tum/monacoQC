@@ -1,0 +1,65 @@
+name: Scalari 2003
+reference: |
+  G. Scalari, L. Ajili, J. Faist, H. Beere, E. Linfield, D. Ritchie, G. Davies
+  "Far-infrared λ=87μm bound-to-continuum quantum-cascade lasers operating up to 90 K"
+  Appl. Phys. Lett. 82, 3165–3167 (2003)
+  https://doi.org/10.1063/1.1571653
+type: THz
+structure:
+  materials:
+    - name: barrier
+      composition: ternary
+      material: AlGaAs
+      ratio: 0.15
+    - name: well
+      material: GaAs
+      composition: binary
+    - name: substrate
+      material: GaAs
+      composition: binary
+  material_system:
+    name: GaAs/AlGaAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.2e-10
+  period:
+    - material: barrier
+      thickness: 24
+    - material: well
+      thickness: 110
+      doping: 2.5e+16
+    - material: barrier
+      thickness: 15
+    - material: well
+      thickness: 120
+    - material: barrier
+      thickness: 12
+    - material: well
+      thickness: 138
+    - material: barrier
+      thickness: 10
+    - material: well
+      thickness: 160
+    - material: barrier
+      thickness: 9
+    - material: well
+      thickness: 163
+    - material: barrier
+      thickness: 6
+    - material: well
+      thickness: 90
+    - material: barrier
+      thickness: 35
+    - material: well
+      thickness: 121
+    - material: barrier
+      thickness: 32
+    - material: well
+      thickness: 110
+scenario:
+  num_periods: 5
+  temperature: 10
+  bias_field: 2.55
+  simulation_time: 7.0e-11
+  num_wavefunctions: 8
+  wavefunction_basis: tb

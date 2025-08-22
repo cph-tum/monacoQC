@@ -1,0 +1,18 @@
+extends: default
+rules:
+  indentation:
+    spaces: 2
+  empty-lines:
+    max: 2
+  line-length:
+    max: 80
+    level: warning
+  document-start: disable
+  document-end: disable
+  empty-values: enable
+  float-values:
+    require-numeral-before-decimal: true
+  truthy:
+    allowed-values: ["true", "false"]
+    check-keys: false
+    level: error

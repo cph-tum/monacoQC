@@ -2,7 +2,7 @@
 % monacoQC: An object-oriented Matlab-based device engineering tool for
 % quantum cascade structures.
 %
-% Copyright (C) 2023, Computational Photonics Group, Technical University of
+% Copyright (C) 2025, Computational Photonics Group, Technical University of
 % Munich
 %
 % This program is free software: you can redistribute it and/or modify
@@ -22,8 +22,8 @@
 classdef BO_sim < carrier_transport_sim
     %BO_sim Creates simulation setup for a n-dimensional
     % Bayesian optimization problem of a QCD.
+
     properties
-        %
         variedLayers = []; % Layer to be varied.
         var_int_layers = []; % Variation intervals of varied layers in
         % Angstrom.
@@ -31,9 +31,8 @@ classdef BO_sim < carrier_transport_sim
         % specified variation interval  of the varied layers.
         basePeriod % Period of an active quantum casade (QC) device.
         numPeriod = 0; % Number of periods.
-        %
     end
-    %
+
     methods
         function obj = BO_sim(variedLayers, var_int_layers, subgrid_BO, ...
                 basePeriod, numPeriod, numWavefunctions)
@@ -44,9 +43,8 @@ classdef BO_sim < carrier_transport_sim
             obj.basePeriod = basePeriod;
             obj.numPeriod = numPeriod;
             obj.num_wavefct = numWavefunctions;
-            %
         end
-        
+
         function result = evaluate_next_device(obj, x, scenario, ...
                 sim_options, dir, fun)
             % Evaluates next device with changed layer sequence.
@@ -54,18 +52,17 @@ classdef BO_sim < carrier_transport_sim
             for i = 1:size(obj.basePeriod, 1)
                 period{end+1} = copy(obj.basePeriod{i});
             end
-            %
+
             str_path = [];
             % Change length of specific layers of the QC device period.
             for m = 1:length(obj.variedLayers)
-                %
                 period{obj.variedLayers(m)}.length = ...
                     period{obj.variedLayers(m)}.length ...
                     +x.(m) * obj.subgrid_BO;
                 str_path = strcat(str_path, 'x', num2str(m-1), '_', ...
                     num2str(period{obj.variedLayers(m)}.length));
-                %
             end
+
             % Make directory.
             path = fullfile(dir, str_path);
             mkdir(path);
@@ -76,7 +73,7 @@ classdef BO_sim < carrier_transport_sim
             % Calculate result of the given merit function.
             result = fun(path);
         end
-        
+
         function results = bayes_opt(obj, fun, scenario, sim_options, ...
                 dir, varargin)
             % Run Bayesian optimization. Introduce merit function @fun,

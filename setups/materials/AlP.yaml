@@ -1,0 +1,51 @@
+name: AlP
+composition: binary
+parameters:
+  - name: Eg
+    value: 3.63
+    temp_dep:
+      model: Varshni
+      param: [5.771e-4, 372]
+  - name: Ec
+    value: 1.171
+  - name: delta_so
+    value: 0.07
+  - name: m_eff
+    value: 0
+  - name: c_parab
+    value: 0
+  - name: a_lattice
+    value: 5.45844
+    temp_dep:
+      model: linear
+      param: 2.92e-5
+  - name: C11
+    value: 1.33
+  - name: C12
+    value: 0.63
+  - name: C44
+    value: 0.615
+  - name: a_vb
+    value: 3
+  - name: a_cb
+    value: -5.7
+  - name: b
+    value: -1.5
+  - name: F
+    value: -0.65
+  - name: Ep
+    value: 17.7
+  - name: eps_r
+    value: 9.8
+  - name: eps_r_inf
+    value: 0
+  - name: rho
+    value: 0
+  - name: delta_V
+    value: 0
+  - name: v_sound
+    value: 0
+  - name: Xi
+    value: 0
+  - name: E_lo
+    value: 0

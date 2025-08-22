@@ -19,12 +19,29 @@
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-classdef carrier_transport_sim < handle
-    %carrier_transport_sim Base class of a backend that generates simulation
-    %        input files from the object-oriented description.
+classdef Maxwell_Boltzmann
+    % Describes the Maxwell_Boltzmann distribution.
 
-    methods (Abstract)
-        generate(obj, device, scenario, options, path, ...
-            eigenstates, cond_profile)
+    properties
+    end
+
+    methods (Static)
+        function fE = calc(A, T, delta_E)
+            % Returns Maxwell-Boltzmann distribution.
+            %
+            % Syntax:
+            %   fE = calc(A, T, delta_E)
+            %
+            % Input Arguments:
+            %   A (scalar): Amplitude A.
+            %   T (scalar): Electron temperature [K].
+            %   delta_E (scalar): Energy difference [eV].
+            %
+            % Output Arguments:
+            %   fE (scalar): Evaluated Maxwell-Boltzmann distribution.
+
+            fE = A .* exp((-1)*(phys_const.e0 * delta_E) ...
+                ./(phys_const.kB * T));
+        end
     end
 end

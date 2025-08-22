@@ -1,0 +1,84 @@
+name: Bismuto 2012
+reference: |
+  A. Bismuto, R. Terazzi, B. Hinkov, M. Beck, J. Faist
+  "Fully automatized quantum cascade laser design by genetic optimization"
+  Appl. Phys. Lett. 101, 021103 (2012)
+  https://doi.org/10.1063/1.4734389
+type: mid-IR
+structure:
+  materials:
+    - name: barrier
+      material: InAlAs
+      composition: ternary
+      ratio: 0.335
+      strain: true
+    - name: well
+      material: InGaAs
+      composition: ternary
+      ratio: 0.635
+      strain: true
+    - name: substrate
+      material: InP
+      composition: binary
+  material_system:
+    name: InGaAs/InAlAs
+    interface_roughness:
+      gamma: 1.0e-8
+      delta: 1.0e-10
+  period:
+    - material: barrier
+      thickness: 35
+    - material: well
+      thickness: 17
+    - material: barrier
+      thickness: 24
+    - material: well
+      thickness: 17
+    - material: barrier
+      thickness: 19
+    - material: well
+      thickness: 19
+      doping: 0.099e+18
+    - material: barrier
+      thickness: 20
+      doping: 0.099e+18
+    - material: well
+      thickness: 19
+      doping: 0.099e+18
+    - material: barrier
+      thickness: 22
+      doping: 0.099e+18
+    - material: well
+      thickness: 21
+      doping: 0.099e+18
+    - material: barrier
+      thickness: 14
+    - material: well
+      thickness: 23
+    - material: barrier
+      thickness: 15
+    - material: well
+      thickness: 26
+    - material: barrier
+      thickness: 19
+    - material: well
+      thickness: 27
+    - material: barrier
+      thickness: 18
+    - material: well
+      thickness: 35
+    - material: barrier
+      thickness: 10
+    - material: well
+      thickness: 38
+    - material: barrier
+      thickness: 13
+    - material: well
+      thickness: 11
+scenario:
+  num_periods: 5
+  temperature: 300
+  bias_field: 79
+  simulation_time: 10.0e-11
+  num_wavefunctions: 12
+  wavefunction_basis: ext

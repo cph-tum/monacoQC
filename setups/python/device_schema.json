@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "monaco setup file schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "mid-IR",
+        "THz"
+      ]
+    },
+    "structure": {
+      "type": "object",
+      "properties": {
+        "materials": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "material": {
+                "type": "string"
+              },
+              "composition": {
+                "type": "string",
+                "enum": [
+                  "binary",
+                  "ternary"
+                ]
+              },
+              "ratio": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "strain": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "required": [
+              "name",
+              "material",
+              "composition"
+            ],
+            "if": {
+              "properties": {
+                "composition": {
+                  "const": "ternary"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "ratio"
+              ]
+            },
+            "unevaluatedProperties": false
+          }
+        },
+        "material_system": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "name of the material system"
+            },
+            "interface_roughness": {
+              "type": "object",
+              "properties": {
+                "gamma": {
+                  "type": "number"
+                },
+                "delta": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "gamma",
+                "delta"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "interface_roughness"
+          ]
+        },
+        "period": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "properties": {
+              "material": {
+                "type": "string",
+                "description": "Layer material (must correspond to a name from the materials array)"
+              },
+              "thickness": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Layer thickness in A"
+              },
+              "doping": {
+                "type": "number",
+                "minimum": 0,
+                "default": 0,
+                "description": "Layer doping density in 1/cm^3"
+              }
+            },
+            "required": [
+              "material",
+              "thickness"
+            ]
+          }
+        }
+      },
+      "required": [
+        "materials",
+        "period",
+        "material_system"
+      ]
+    },
+    "waveguide": {
+      "type": "object",
+      "properties": {
+        "cavity_length": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Cavity length in m"
+        },
+        "cavity_width": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0,
+          "description": "Cavity width in m"
+        },
+        "cavity_height": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0,
+          "description": "Cavity height in m"
+        },
+        "field_reflectivity_left": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1,
+          "description": "Field reflectivity coefficient at left facet (can be complex)"
+        },
+        "field_reflectivity_right": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1,
+          "description": "Field reflectivity coefficient at right facet (can be complex)"
+        },
+        "refractive_index": {
+          "type": "number",
+          "description": "Effective refractive index of cavity material"
+        },
+        "overlap_factor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1,
+          "description": "Overlap of the quantum nanostructure with the mode profile"
+        },
+        "power_loss": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Waveguide power loss coefficient in 1/m"
+        }
+      },
+      "required": [
+        "cavity_length",
+        "field_reflectivity_left",
+        "field_reflectivity_right",
+        "overlap_factor",
+        "power_loss"
+      ],
+      "dependentRequired": {
+        "cavity_width": [
+          "cavity_height"
+        ],
+        "cavity_height": [
+          "cavity_width"
+        ]
+      }
+    },
+    "scenario": {
+      "type": "object",
+      "properties": {
+        "num_periods": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of periods to simulate"
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Simulation temperature in K"
+        },
+        "bias_field": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Applied bias field in kV/cm"
+        },
+        "simulation_time": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Simulation time in s"
+        },
+        "num_wavefunctions": {
+          "type": "integer",
+          "minimum": 2,
+          "description": "Number of wavefunctions to consider per period"
+        },
+        "wavefunction_basis": {
+          "type": "string",
+          "enum": [
+            "tb",
+            "ext",
+            "ez",
+            "QCD"
+          ]
+        }
+      },
+      "required": [
+        "num_periods",
+        "temperature",
+        "bias_field",
+        "simulation_time",
+        "num_wavefunctions",
+        "wavefunction_basis"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "reference",
+    "type",
+    "structure",
+    "scenario"
+  ]
+}

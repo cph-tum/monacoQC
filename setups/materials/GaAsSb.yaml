@@ -1,0 +1,65 @@
+name: GaAsSb
+composition: ternary
+component_1: GaAs
+component_2: GaSb
+parameters:
+  - name: Eg
+    conc_dep:
+      model: bowing
+      param: 1.43
+  - name: Ec
+    conc_dep:
+      model: bowing
+      param: 0.37
+  - name: delta_so
+    conc_dep:
+      model: bowing
+      param: 0.6
+  - name: m_eff
+    value: 0
+  - name: c_parab
+    value: 0
+  - name: a_lattice
+    conc_dep:
+      model: bowing
+  - name: C11
+    conc_dep:
+      model: lattice
+  - name: C12
+    conc_dep:
+      model: lattice
+  - name: C44
+    value: 0
+  - name: a_vb
+    conc_dep:
+      model: bowing
+  - name: a_cb
+    conc_dep:
+      model: bowing
+  - name: b
+    conc_dep:
+      model: bowing
+  - name: F
+    conc_dep:
+      model: bowing
+  - name: Ep
+    conc_dep:
+      model: bowing
+  - name: eps_r
+    conc_dep:
+      model: bowing
+  - name: eps_r_inf
+    conc_dep:
+      model: bowing
+  - name: rho
+    conc_dep:
+      model: bowing
+  - name: delta_V
+    value: 0
+  - name: v_sound
+    conc_dep:
+      model: bowing
+  - name: Xi
+    value: 0
+  - name: E_lo
+    value: [0, 0]
